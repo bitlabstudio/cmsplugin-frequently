@@ -37,7 +37,9 @@ dev_requires = [
 ]
 
 install_requires = [
-    'django',
+    'django<1.6',
+    'django-cms<3.0',
+    'django-frequently',
 ]
 
 

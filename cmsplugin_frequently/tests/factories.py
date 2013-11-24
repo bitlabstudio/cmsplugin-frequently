@@ -1,4 +1,15 @@
-"""Factories for the cmsplugin_frequently app."""
-# import factory
+"""
+Factories for the ``cmsplugin_frequently`` app.
 
-# from ..models import YourModel
+"""
+import factory
+
+from cmsplugin_frequently import models
+
+
+class FrequentlyEntryCategoryPluginFactory(factory.Factory):
+    """
+    Factory for factories for ``FrequentlyEntryCategoryPlugin`` models.
+
+    """
+    FACTORY_FOR = models.FrequentlyEntryCategoryPlugin
