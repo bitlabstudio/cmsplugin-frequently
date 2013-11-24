@@ -51,13 +51,13 @@ instructions very closely:
    your DB is at the latest version of the old frequently app
 2. Update the django-frequently to the latest version and install
    cmsplugin-frequently like described above
-3. Add `cmsplugin_frequently` to your `INSTALLED_APPS`
-4. Run the first migration via `./manage.py migrate cmsplugin_frequently 0001 --delete-ghost-migrations`
-5. Migrate your old plugins to this new app via `./manage.py migrate_to_frequently_v1`
+3. Add ``cmsplugin_frequently`` to your ``INSTALLED_APPS``
+4. Run the first migration via ``./manage.py migrate cmsplugin_frequently 0001 --delete-ghost-migrations``
+5. Migrate your old plugins to this new app via ``./manage.py migrate_to_frequently_v1``
 
-Step 3 deletes your migrations for django-frequently from
-`south_migrationhistory`. To get back to the latest migration, do the
-following::
+Step 5 deletes your migrations for django-frequently from
+``south_migrationhistory`` because for version 1 we have reset the South
+mirations. To get back to the latest migration, do the following::
 
   ./manage.py migrate frequently 0001 --fake
   ./manage.py migrate frequently
@@ -67,8 +67,12 @@ following::
 Usage
 -----
 
-TODO: Describe usage or point to docs. Also describe available settings and
-templatetags.
+Just login to the Pages admin and place the plugin whereever you would like to
+render a cateogry of the frequently app.
+
+IMPORTANT: Make sure to include the js file in the cms template::
+
+    <script type="text/javascript" src="{{ STATIC_URL }}frequently/js/frequently.js"></script>
 
 
 Contribute
