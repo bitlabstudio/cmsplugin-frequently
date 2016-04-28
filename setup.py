@@ -32,13 +32,9 @@ from setuptools import setup, find_packages
 import cmsplugin_frequently as app
 
 
-dev_requires = [
-    'flake8',
-]
-
 install_requires = [
-    'django<1.6',
-    'django-cms<3.0',
+    'django',
+    'django-cms',
     'django-frequently',
 ]
 
@@ -63,7 +59,4 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=install_requires,
-    extras_require={
-        'dev': dev_requires,
-    },
 )

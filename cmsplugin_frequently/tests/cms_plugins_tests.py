@@ -1,9 +1,9 @@
 """Tests for models of the ``frequently``` application."""
 from django.test import TestCase
 
+from mixer.backend.django import mixer
+
 from ..cms_plugins import CMSFrequentlyCategoryPlugin
-from frequently.tests.factories import EntryCategoryFactory
-from . import factories
 
 
 class CMSFrequentlyCategoryPluginTestCase(TestCase):
@@ -11,8 +11,9 @@ class CMSFrequentlyCategoryPluginTestCase(TestCase):
     longMessage = True
 
     def setUp(self):
-        self.plugin = factories.FrequentlyEntryCategoryPluginFactory()
-        self.category = EntryCategoryFactory()
+        self.plugin = mixer.blend(
+            'cmsplugin_frequently.FrequentlyEntryCategoryPlugin')
+        self.category = mixer.blend('frequently.EntryCategory')
         self.cmsplugin = CMSFrequentlyCategoryPlugin()
 
     def test_render(self):
